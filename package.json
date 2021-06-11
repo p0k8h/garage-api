@@ -4,8 +4,10 @@
   "description": "an online movie booking system api",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js --exec ./node_modules/.bin/babel-node",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon app.js --exec babel-node",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "npm install",
+    "start": "babel-node server.js"
   },
   "license": "ISC",
   "dependencies": {
@@ -25,7 +27,9 @@
     "shortid": "^2.2.13"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel": "6.23.0",
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.6.0",
+    "nodemon": "1.11.0"
   }
 }
