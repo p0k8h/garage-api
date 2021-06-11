@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import chalk from "chalk";
 
 // import mySqlConfig from "./config/mysql";
 import routes from "./routes";
@@ -23,7 +22,6 @@ app.get("/", (req, res, next) => {
 app.listen(PORT, () => {
   console.log(
     `%s  Serving API at http://localhost:%d in %s mode\n`,
-    chalk.green("✅"),
     PORT,
     env
   );
