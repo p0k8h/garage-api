@@ -21,9 +21,7 @@ app.get("/", (req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(
-    `%s  Serving API at http://localhost:%d in %s mode\n`,
-    PORT,
-    env
-  );
+    `Serving API at http://localhost:%s\n`,
+    PORT  );
   console.log("PRESS CTRL+C to stop\n");
 });
