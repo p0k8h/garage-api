@@ -8,7 +8,9 @@ export function addJob(req, res, next) {
     name: req.body.name,
     hours: req.body.hours,
     isCompleted: req.body.isCompleted,
-    employeeID: req.body.employeeID
+    employeeID: req.body.employeeID,
+    amount: req.body.amount,
+    customerID: req.body.customerID
   }
 
   connection.query('INSERT INTO jobs SET ?', job, (err, rows) => {
@@ -18,8 +20,16 @@ export function addJob(req, res, next) {
   });
 }
 
+// export function getJobs(req, res, next) {
+//   connection.query('SELECT * FROM jobs', (err, rows) => {
+//     if (err) return res.status(400).send(err);
+
+//     return res.send(rows);
+//   });
+// }
+
 export function getJobs(req, res, next) {
-  connection.query('SELECT * FROM jobs', (err, rows) => {
+  connection.query('SELECT * FROM jobs as A INNER JOIN customers as B ON A.customerID = B.id', (err, rows) => {
     if (err) return res.status(400).send(err);
 
     return res.send(rows);
